@@ -2,22 +2,23 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
+
+  // This allows each save button on the right side to save information in local storage. 
+  $(".saveBtn").click(function () {
+    // The variable "hourID" gets the relevant id. The id is a parent to the save button. When viewing the local storage, if clicking on 6am, it will read hour-6. The split was added to make it display just 6. More information on what split does farther down. 
+    var hourID = $(this).parent().attr("id").split("-")[1];
+    // The variable "descriptionBox" is a sibling to the save button. 
+    var descriptionBox = $(this).siblings(".description").val();
+    // The button will save the content of the box to local storage, with the ID displayed. The "hourID" is the key, and the "descriptionBox" is the value.
+    localStorage.setItem(hourID, descriptionBox);
+  });
 
 
-
-
-
-// Gets the current hour from DayJS, logs a number to the console from 0-23 based on current time
+// Gets the current hour from DayJS, logs a number to the console from 0-23 based on current time. If you want to test the colors, change the hourNow to be equal to a number of your choice. For example, if you replace "dayjs().hour();" with 15, the page will color in as if it's 3:00.
 var hourNow = dayjs().hour();
 console.log(hourNow);
 
-//Grabs all the "time block" hourly numbers on the left side and puts them into a list.
+//Grabs all the "time block" hourly numbers on the left side and puts them into a list. The ".split("-")[1]" splits the data of "hour" and "number" into 2 values. Value 0 is the word "hour", whereas value 1 is the number, which is what we want. So the 1 isolates the number only within the id.
 
 $(".time-block").each(function (){
 
@@ -55,7 +56,7 @@ $(".time-block").each(function (){
 
 
 
-  
+
 
   // Today's date, which is used by the "currentDay" ID in the header of the HTML.
 
