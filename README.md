@@ -44,3 +44,5 @@ Going forward, I could see adding multiple days to the schedule, instead of just
 I used the instructor lesson on DayJS (Week 5 Module 25) to learn how to display the date at the top. I also used the documentation from the DayJS Website.
 
 I also used the jQuery documentation a lot, as well as Stack Overflow when certain things weren't working as I expected to see what I was doing wrong. However, I was able to complete everything required in the end.
+
+As alluded to, much of the code was completed already when the assignment started. The starter code can be found here: https://github.com/coding-boot-camp/crispy-octo-meme
